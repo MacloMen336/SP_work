@@ -7,16 +7,9 @@
 	#### **Руководство по сборке и запуске проекта**
 	1. Клонирование репозитория
 		```
-		$ git clone https://github.com/cmd270/sp_lab_works
+		$ git clone https://github.com/MacloMen336/SP_work/
 		```
-	1. Сборка проекта
+	2. Запуск программы
 		```
-		$ cd lab1
-		$ mkdir build && cd build
-		$ cmake ..
-		$ make 
-		```
-	1. Запуск программы
-		```
-		$ ./lab1_sp
+		$ python3 First.py
 		```
