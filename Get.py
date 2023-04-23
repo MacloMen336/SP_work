@@ -18,7 +18,7 @@ else:
 url = site_url #website 
 resp = requests.get(url) #get all from site ()
 resp.encoding = 'windows-1251' #because site biik.ru rasp use cp-1251 need do that 
-print(resp) #write site answer code
+#print(resp) #write site answer code
 if resp == 404: #check if site not work
     print('Not Found')
 else:
@@ -35,12 +35,23 @@ else:
     for i in range(num_delete_line): #Delete first 104 line, because they unused
         line.pop(0)
 
+    #--Добавление разделения на подгруппы--
+    for j in range(len(line)):
+        i = line[j]
+        if (i[0].isnumeric()) and (i[1] == ' ') and (i[0]!='8'):
+            if line[j+2][:1].isnumeric():
+                line[j+1] = str('Общая пара) ' + line[j+1])
+
+            if line[j+3][:1].isnumeric():
+                line[j+1] = str('1-подгр) ' + line[j+1])
+                line[j+2] = str('2-подгр) ' + line[j+2])
+                
     f = open("Rasp.txt", "w") #after delete unused elements, write new line in txt file
     for i in line:
         f.write(i)
     f.close()
 
-    # форма таблицы вывода
+    # # форма таблицы вывода
     # for i in range(len(line)):
 
     #     if '\d{2}.\d{2}.' in line[i]:
@@ -55,10 +66,8 @@ else:
     #     f1.write(strok)
     #     print(strok[:-1]) #delete last symbol (/n) from line
     # f.close()
-
-
     
     print('All Ready') #write if programm do all work
     #print(settings['rasp_i_101'])
-    print(line)
+    #print(line)
     
